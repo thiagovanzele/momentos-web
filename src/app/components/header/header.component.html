@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="img-container">
+    <div class="imagem"></div>
+    <h2>Momentos</h2>
+  </div>
+
+  <div class="links-container">
+    @for (rota of rotas; track rota) {
+      <app-header-button [rota]="rota"></app-header-button>
+    }
+  </div>
+</header>

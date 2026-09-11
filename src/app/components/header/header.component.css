@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 60px;
+  border-bottom: 1px solid var(--gray-900);
+}
+
+header .img-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header .img-container .imagem {
+  background-color: var(--gold-500);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+header .img-container h2 {
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.links-container {
+  display: flex;
+  gap: 30px;
+}
