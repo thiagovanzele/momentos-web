@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { HeaderButtonComponent } from './header-button/header-button.component';
 import { Rota } from '../../models/rota';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [HeaderButtonComponent],
+  imports: [HeaderButtonComponent, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
