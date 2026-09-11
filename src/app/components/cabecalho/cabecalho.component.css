@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 0;
+
+  > h1 {
+    color: var(--gray-700);
+  }
+
+  input {
+    width: 500px;
+    height: 44px;
+    padding: 0 20px;
+    text-align: center;
+    line-height: 44px;
+    box-sizing: border-box;
+    border: 1px solid var(--gray-300);
+    transition: 0.3s ease;
+    color: var(--gray-700);
+
+    &:focus {
+        border-color: var(--gold-600);
+        outline: none;
+    }
+  }
+}
