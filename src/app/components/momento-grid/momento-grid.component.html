@@ -1,0 +1,9 @@
+<body>
+  <main class="momentos-grid">
+    @for (momento of filteredMomentos(); track momento) {
+      <app-momento [momento]="momento"></app-momento>
+    } @empty {
+      <div>Tem nada aqui</div>
+    }
+  </main>
+</body>

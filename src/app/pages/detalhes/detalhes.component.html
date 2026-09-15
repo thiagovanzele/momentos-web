@@ -1,0 +1,58 @@
+<main>
+  <section class="momento-container">
+    <h1>{{ momentoSelecionado.titulo }}</h1>
+    <div class="img"></div>
+    <h3>Sobre esse momento:</h3>
+    <p class="momento-descricao">{{ momentoSelecionado.descricao }}</p>
+  </section>
+
+  <section class="btn-section">
+    <h2 class="btn-title">Ações:</h2>
+    <div class="btns-container">
+      <button class="btn btn-editar">Editar</button>
+      <button class="btn btn-excluir">Excluir</button>
+    </div>
+  </section>
+
+  <section class="comentarios-section">
+    <h2 class="comentarios-title">
+      Comentários ({{ momentoSelecionado.comentarios.length }}):
+    </h2>
+
+    @for (comentario of momentoSelecionado.comentarios; track comentario) {
+      <div class="comentario-container">
+        <span>{{ comentario.nome }}</span>
+        <p>{{ comentario.texto }}</p>
+        <small>{{ comentario.data | date: "dd/MM/YYYY" }}</small>
+      </div>
+    } @empty {
+      <div class="no-content">Não há comentários!</div>
+    }
+
+    <h2 class="add-comentario-title">Deixe um comentário:</h2>
+
+    <div class="add-comentario-container">
+      <form [formGroup]="addComentarioForm" (ngSubmit)="onSubmit()">
+        <label for="">
+          Comentário:
+          <textarea
+            formControlName="texto"
+            id="comentario"
+            placeholder="O que você quer comentar?"
+          ></textarea>
+        </label>
+
+        <label>
+          Nome:
+          <input
+            type="text"
+            formControlName="nome"
+            placeholder="Digite o seu nome"
+          />
+        </label>
+
+        <button type="submit">Comentar</button>
+      </form>
+    </div>
+  </section>
+</main>

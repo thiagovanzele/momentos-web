@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc(33.333% - 14px);
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.container h3 {
+  color: var(--gray-700);
+}
+
+.container small {
+  font-style: italic;
+  color: var(--gray-500);
+}
+
+.container p {
+  color: var(--gray-500);
+  font-weight: 700;
+}
+
+.container a {
+  text-decoration: none;
+  color: var(--gold-500);
+  font-weight: 600;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: var(--gold-700);
+  }
+}
+
+.img {
+  height: 400px;
+  width: 300px;
+  background-color: aquamarine;
+  border-radius: 20px;
+}

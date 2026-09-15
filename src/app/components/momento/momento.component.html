@@ -1,0 +1,7 @@
+<div class="container">
+  <div class="img"></div>
+  <h3>{{ momento().titulo }}</h3>
+  <small>Em: {{ momento().data | date: "dd/MM/YYYY" }}</small>
+  <p>Comentários: {{ momento().comentarios.length }}</p>
+  <a [routerLink]="['/momentos', momento().id]">Detalhes</a>
+</div>

@@ -1,1 +1,2 @@
-<p>momentos works!</p>
+<app-cabecalho (textoBuscaChange)="textoBusca.set($event)"></app-cabecalho>
+<app-momento-grid [textoBusca]="textoBusca()"></app-momento-grid>

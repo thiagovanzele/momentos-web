@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './cabecalho.component.css',
 })
 export class CabecalhoComponent {
-  busca: string = '';
-
-  onInput(): void {
-    console.log(this.busca)
-  }
+  textoBuscaChange = output<string>();
 }

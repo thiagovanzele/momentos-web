@@ -1,4 +1,9 @@
 <header>
   <h1>Veja o que estão compartilhando:</h1>
-  <input [(ngModel)]="busca" (input)="onInput()" type="text" placeholder="Ou busque por um momento" />
+  <input
+    (input)="textoBuscaChange.emit(campoBusca.value)"
+    type="text"
+    placeholder="Ou busque por um momento"
+    #campoBusca
+  />
 </header>

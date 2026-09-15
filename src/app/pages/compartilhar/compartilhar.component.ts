@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { CabecalhoComponent } from '../../components/cabecalho/cabecalho.component';
 
 @Component({
   selector: 'app-compartilhar',
   standalone: true,
-  imports: [CabecalhoComponent],
+  imports: [],
   templateUrl: './compartilhar.component.html',
-  styleUrl: './compartilhar.component.css'
+  styleUrl: './compartilhar.component.css',
 })
-export class CompartilharComponent {
-
-}
+export class CompartilharComponent {}
