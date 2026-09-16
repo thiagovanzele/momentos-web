@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderButtonComponent } from './header-button/header-button.component';
-import { Rota } from '../../models/rota';
+import { Rota } from '../../models/Rota';
 import { RouterLink } from "@angular/router";
 
 @Component({
