@@ -184,19 +184,29 @@ main .momento-container {
         align-self: flex-start;
         margin-top: 10px;
         font-size: 15px;
-        border: 1px solid var(--gold-700);
         padding: 10px;
         border-radius: 6px;
-        color: var(--gold-700);
         transition: 0.4s ease;
         cursor: pointer;
         font-weight: 500;
+      }
+
+      .botao-add {
+        border: 1px solid var(--gold-700);
+        color: var(--gold-700);
 
         &:hover {
           transform: scale(1.1);
           background-color: var(--gold-700);
           color: white;
         }
+      }
+
+      .botao-desabilitado {
+        border: 1px solid var(--gray-500);
+        background-color: var(--gray-200);
+        color: var(--gray-500);
+        cursor: not-allowed;
       }
     }
   }

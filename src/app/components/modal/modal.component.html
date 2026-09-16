@@ -1,0 +1,11 @@
+<section class="modal">
+  <ng-content></ng-content>
+  <div class="btn-container">
+    <button (click)="handleCancel()" type="button" class="btn-cancelar">
+      Cancelar
+    </button>
+    <button (click)="handleConfirm()" type="button" class="btn-executar">
+      Salvar
+    </button>
+  </div>
+</section>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MomentoService } from '../../services/momento.service';
 import { Momento } from '../../models/Momento';
-import { DatePipe } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 import {
   FormControl,
   FormGroup,
@@ -10,16 +10,18 @@ import {
   Validators,
 } from '@angular/forms';
 import { Comentario } from '../../models/Comentario';
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-detalhes',
   standalone: true,
-  imports: [DatePipe, ReactiveFormsModule],
+  imports: [DatePipe, ReactiveFormsModule, NgClass, ModalComponent],
   templateUrl: './detalhes.component.html',
   styleUrl: './detalhes.component.css',
 })
 export class DetalhesComponent implements OnInit {
   addComentarioForm!: FormGroup;
+  modalAberto = false;
 
   initForm() {
     this.addComentarioForm = new FormGroup({
@@ -31,6 +33,7 @@ export class DetalhesComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private momentoService: MomentoService,
+    private router: Router,
   ) {}
 
   momentoSelecionado: Momento = {} as Momento;
@@ -44,6 +47,14 @@ export class DetalhesComponent implements OnInit {
     this.momentoSelecionado = this.momentoService.getMomentoPorId(Number(id));
   }
 
+  abrirModal(): void {
+    this.modalAberto = true;
+  }
+
+  fecharModal(): void {
+    this.modalAberto = false;
+  }
+
   onSubmit(): void {
     if (this.addComentarioForm.valid) {
       const novoComentario: Comentario = this.addComentarioForm.value;
@@ -55,5 +66,21 @@ export class DetalhesComponent implements OnInit {
 
       this.addComentarioForm.reset();
     }
+  }
+
+  isFormularioValido(): boolean {
+    if (!this.addComentarioForm.touched) return false;
+
+    return this.addComentarioForm.valid;
+  }
+
+  handleDelete(): void {
+    console.log('excluindo o bicho');
+    this.fecharModal();
+    this.router.navigateByUrl('/momentos');
+  }
+
+  handleEdit(): void {
+    this.router.navigate(['/momentos/editar/', this.momentoSelecionado.id]);
   }
 }

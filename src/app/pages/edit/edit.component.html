@@ -1,0 +1,48 @@
+<main>
+  <h1>
+    Editando o momento <span>{{ momentoSelecionado.titulo }}</span
+    >!
+  </h1>
+
+  <form [formGroup]="momentoForm" (ngSubmit)="onSubmit()">
+    <label for="titulo">
+      Título:
+      <input
+        type="text"
+        placeholder="Coloque um título"
+        formControlName="titulo"
+      />
+    </label>
+
+    <label for="descricao">
+      Descrição:
+      <textarea
+        name="descricao"
+        id="descricao"
+        formControlName="descricao"
+        placeholder="O que aconteceu lá ?"
+      ></textarea>
+    </label>
+
+    <label for="imagem">
+      Imagem:
+      <input
+        type="file"
+        id="imagem"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+      />
+    </label>
+
+    @if (imagemPreview) {
+      <img [src]="imagemPreview" alt="Preview da imagem" class="imagem-preview" />
+    }
+
+    <div class="btn-container">
+      <button (click)="handleCancelEdit()" class="btn btn-cancelar">
+        Cancelar
+      </button>
+      <button class="btn btn-salvar">Salvar</button>
+    </div>
+  </form>
+</main>

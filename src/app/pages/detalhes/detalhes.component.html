@@ -9,8 +9,8 @@
   <section class="btn-section">
     <h2 class="btn-title">Ações:</h2>
     <div class="btns-container">
-      <button class="btn btn-editar">Editar</button>
-      <button class="btn btn-excluir">Excluir</button>
+      <button (click)="handleEdit()" class="btn btn-editar">Editar</button>
+      <button (click)="abrirModal()" class="btn btn-excluir">Excluir</button>
     </div>
   </section>
 
@@ -51,8 +51,19 @@
           />
         </label>
 
-        <button type="submit">Comentar</button>
+        <button
+          [ngClass]="isFormularioValido() ? 'botao-add' : 'botao-desabilitado'"
+          type="submit"
+        >
+          Comentar
+        </button>
       </form>
     </div>
+
+    @if (modalAberto) {
+      <app-modal (cancel)="fecharModal()" (confirm)="handleDelete()">
+        <p>Deseja realmente excluir o momento?</p>
+      </app-modal>
+    }
   </section>
 </main>

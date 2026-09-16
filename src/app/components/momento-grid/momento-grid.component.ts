@@ -2,11 +2,12 @@ import { Component, computed, input, signal } from '@angular/core';
 
 import { Momento } from '../../models/Momento';
 import { MomentoComponent } from '../momento/momento.component';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-momento-grid',
   standalone: true,
-  imports: [MomentoComponent],
+  imports: [MomentoComponent, ModalComponent],
   templateUrl: './momento-grid.component.html',
   styleUrl: './momento-grid.component.css',
 })
