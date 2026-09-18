@@ -1,0 +1,25 @@
+<main>
+  <section class="principal-container">
+    <h3>Momentos</h3>
+    <span>{{ tituloPagina() }}</span>
+
+    <ng-content></ng-content>
+
+    <div class="btn-container">
+      <button class="primary-btn" (click)="onSubmitPrimary.emit()">
+        {{ btnPrimarioTxt() }}
+      </button>
+      <div class="separador-container">
+        <div class="left"></div>
+        <span>ou</span>
+        <div class="right"></div>
+      </div>
+      <button (click)="onSubmitSecondary.emit()" class="secondary-btn">
+        {{ btnSecundarioTxt() }}
+      </button>
+    </div>
+  </section>
+  <section class="imagem-container">
+    <div class="imagem"></div>
+  </section>
+</main>

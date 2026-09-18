@@ -1,0 +1,28 @@
+<app-login-default
+  [tituloPagina]="tituloPagina"
+  [btnPrimarioTxt]="primaryButton"
+  [btnSecundarioTxt]="secondaryButton"
+  (onSubmitPrimary)="submitCadastro()"
+  (onSubmitSecondary)="navigateLogin()"
+>
+  <form [formGroup]="cadastroForm">
+    <label for="nome">
+      Nome
+      <input type="text" formControlName="nome" />
+    </label>
+    <label for="email">
+      Email
+      <input type="text" formControlName="email" />
+    </label>
+
+    <label for="senha">
+      Senha
+      <input type="text" formControlName="senha" />
+    </label>
+
+    <label for="confirmacao-senha">
+      Confirme a Senha
+      <input type="text" formControlName="confirmacaoSenha" />
+    </label>
+  </form>
+</app-login-default>

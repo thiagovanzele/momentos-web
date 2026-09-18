@@ -1,0 +1,19 @@
+<app-login-default
+  [tituloPagina]="tituloPagina"
+  [btnPrimarioTxt]="primaryButton"
+  [btnSecundarioTxt]="secondaryButton"
+  (onSubmitPrimary)="submitLogin()"
+  (onSubmitSecondary)="navigateCadastrar()"
+>
+  <form [formGroup]="loginForm">
+    <label for="email">
+      Email
+      <input type="text" formControlName="email" />
+    </label>
+
+    <label for="senha">
+      Senha
+      <input type="text" formControlName="senha" />
+    </label>
+  </form>
+</app-login-default>
