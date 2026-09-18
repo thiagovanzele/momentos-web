@@ -1,1 +1,75 @@
-<p>Funcionando</p>
+<main>
+  <h1>Compartilhe o seu momento</h1>
+
+  <form [formGroup]="momentoForm">
+    <label for="titulo">
+      Título:
+      <input
+        type="text"
+        placeholder="Coloque um título"
+        formControlName="titulo"
+      />
+    </label>
+
+    @if (
+      momentoForm.get("titulo")?.touched && !momentoForm.get("titulo")?.valid
+    ) {
+      <small>O título é obrigatório</small>
+    }
+
+    <label for="descrição">
+      Descrição:
+      <textarea
+        formControlName="descricao"
+        name="descricao"
+        id="descricao"
+        placeholder="O que aconteceu lá ?"
+      ></textarea>
+    </label>
+
+    @if (
+      momentoForm.get("descricao")?.touched &&
+      !momentoForm.get("descricao")?.valid
+    ) {
+      <small>A descrição é obrigatória</small>
+    }
+
+    <label for="imagem">
+      Coloque a foto que mais marcou:
+      <input
+        type="file"
+        id="imagem"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+      />
+    </label>
+    @if (
+      momentoForm.get("urlImagem")?.touched &&
+      !momentoForm.get("urlImagem")?.valid
+    ) {
+      <small>A imagem é obrigatória</small>
+    }
+
+    @if (imagemPreview) {
+      <img
+        [src]="imagemPreview"
+        alt="Preview da imagem"
+        class="imagem-preview"
+      />
+    }
+
+    <div class="btn-container">
+      <button (click)="handleCancel()" class="btn btn-cancelar">
+        Cancelar
+      </button>
+      <button
+        (click)="handleSave()"
+        [disabled]="!momentoForm.valid"
+        [ngClass]="momentoForm.valid ? 'btn-salvar' : 'btn-desabilitar'"
+        class="btn"
+      >
+        Salvar
+      </button>
+    </div>
+  </form>
+</main>

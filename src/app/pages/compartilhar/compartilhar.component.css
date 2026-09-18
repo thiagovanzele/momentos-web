@@ -1,0 +1,113 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  > h1 {
+    margin: 30px 0;
+    color: var(--gray-700);
+  }
+
+  > form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+
+    > small {
+      color: red;
+      align-self: flex-start;
+      font-style: italic;
+      margin-top: -12px;
+    }
+
+    > label {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      color: var(--gray-700);
+      width: 500px;
+
+      input,
+      textarea {
+        margin-top: 5px;
+        outline: none;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid var(--gray-500);
+
+        &:focus {
+          border: 1px solid var(--gold-700);
+        }
+      }
+
+      > textarea {
+        height: 100px;
+      }
+
+      &:last-child {
+        margin-bottom: 30px;
+      }
+    }
+
+    .imagem-preview {
+      width: 200px;
+      border-radius: 12px;
+    }
+
+    .btn-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 0;
+      gap: 20px;
+
+      .btn {
+        padding: 10px;
+        width: 100px;
+        border-radius: 4px;
+
+        &:not(:disabled) {
+          transition: 0.4s ease;
+          cursor: pointer;
+          font-weight: 500;
+
+          &:hover {
+            scale: calc(1.1);
+          }
+        }
+      }
+
+      .btn-desabilitar {
+        color: var(--gray-500);
+        background-color: var(--gray-200);
+        border: 1px solid var(--gray-300);
+        cursor: not-allowed;
+        opacity: 0.65;
+        box-shadow: none;
+        pointer-events: none;
+      }
+
+      .btn-salvar {
+        border: 1px solid var(--gold-700);
+        color: var(--gold-700);
+
+        &:hover {
+          background-color: var(--gold-700);
+          color: white;
+        }
+      }
+
+      .btn-cancelar {
+        border: 1px solid red;
+        color: red;
+
+        &:hover {
+          background-color: red;
+          color: white;
+        }
+      }
+    }
+  }
+}
